@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>MineMix</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #ff6600, #000000);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        text-align: center;
+        padding: 50px 0;
+        flex: 1;
+      }
+      .header h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+      .header p {
+        font-size: 1.2em;
+        margin-top: 10px;
+      }
+      .button-container {
+        margin-top: 20px;
+      }
+      .button {
+        display: inline-block;
+        width: 200px;
+        margin: 10px;
+        padding: 15px;
+        text-align: center;
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
+      }
+      .button:hover {
+        background-color: #e65c00;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #111;
+        padding-top: 60px;
+        transition: 0.5s;
+        z-index: 1;
+      }
+      .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 1.2em;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+      }
+      .sidebar a:hover {
+        background-color: #575757;
+      }
+      .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        border: none;
+        margin: 20px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .openbtn:hover {
+        background-color: #444;
+      }
+      #main {
+        transition: margin-left 0.5s;
+        padding: 16px;
+        flex: 1;
+      }
+      .footer {
+      background-color: #111;
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+      position: relative;
+    }
+    .footer a {
+      color: #ff6600;
+      margin: 0 65px;
+      text-decoration: none;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+    .footer a:hover {
+      color: #e65c00;
+    }
+    .social-link {
+      display: inline-block;
+      padding: 10px;
+      border: 2px solid #ff6600;
+      border-radius: 5px;
+      margin: 0 10px; /* Adjust spacing between links */
+    }
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      h2 {
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+      }
+      .form-group input[type="submit"] {
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+      }
+      .form-group input[type="submit"]:hover {
+        background-color: #e65c00;
+      }
+
+      .height {
+
+        padding: 15px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+
+      .box {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        max-width: 400px;
+        margin: 20px auto;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .box img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-top: 20px;
+        filter: blur(5px); /* Ajout de l'effet de flou à l'image */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">Accueil</a>
+      <a href="#">À propos</a>
+      <a href="chartes_utilisation.html">Chartes d'utilisation</a>
+      <a href="#">Serveur</a>
+      <a href="contact.html">Contact</a>
+      <a href="connexion.html">Se connecter</a>
+      <a href="inscription.html">S'inscrire</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰ Menu</button>
+      <div class="header">
+        <h1>Bienvenue sur MineMix</h1>
+        <p>Ici tu retrouvera les actualités de mes avancers dans codage (voir sur le github) et j'ajouterais des fonctionnalités au fur et à mesure.</p>
+        <div class="button-container">
+          <a href="connexion.html" class="button">Se connecter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="height">
+      <h1> Voici MineHub l'endroit du joue-joue, <a href="chartes_utilisation.html"> merci de lire la chartes d'utilisation</a> </h1>
+    </div>
+
+    <div class="box">
+      <h2>Ici tu retrouvera plusieurs fonctionnalité</h2>
+      <p>
+        J'ajouterais souvent des nouvelles fonctionnalité pour améliorer le site
+        par exemple je travail sur test clicker pour savoir le nombre de CPS que
+        l'ont fait vous pourrez voir l'avancer sur <a href="https://http://127.0.0.1:3000/Miniprojet/12/21/clicker.html">Clicker test.</a>
+      <br>
+      <br>
+      <Small>03/06/2024 - 19h00</Small></p>
+
+      </p>
+    </div>
+
+    <div class="footer">
+      <a href="https://github.com" target="_blank" class="social-link"><i class='bx bxl-github'></i>    GitHub</i></a>
+      <a href="https://youtube.com" target="_blank" class="social-link"><i class='bx bxl-youtube'></i>    YouTube</a>
+      <a href="https://kick.com" target="_blank" class="social-link"><i class='bx bxl-kickstarter' ></i>    Kick</a>
+      <a href="https://tiktok.com" target="_blank" class="social-link"><i class='bx bxl-tiktok' ></i>    TikTok</a>
+    </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.left = "0";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.left = "-250px";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+  </body>
+</html>
