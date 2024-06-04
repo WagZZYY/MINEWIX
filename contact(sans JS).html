@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - MineHub</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: #fff;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #222;
+        padding: 20px;
+        margin-top: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group textarea {
+        width: 98%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .form-group input[type="button"] {
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .form-group input[type="button"]:hover {
+        background-color: #e65c00;
+      }
+
+      .back-button {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .back-button a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .back-button a:hover {
+        text-decoration: underline;
+      }
+
+      .notification {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 102, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        text-align: center;
+        z-index: 1000;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Contact - MineHub</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Nom :</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse email :</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message :</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="form-group">
+          <input
+            type="button"
+            id="submitBtn"
+            value="Envoyer"
+            onclick="showNotification()"
+          />
+        </div>
+      </form>
+      <div class="back-button">
+        <a href="index.html">Retour à l'accueil</a>
+      </div>
+    </div>
+
+    <div class="notification" id="notification">
+      <p>Voulez-vous vraiment envoyer ce ticket ?</p>
+      <button onclick="confirmSubmit()">Oui</button>
+      <button onclick="hideNotification()">Non, plus tard</button>
+    </div>
+// Ici il y'a du code JS mais c'est conté comme virus donc il y'a la partie avec le JS dans le fichier contact.html
+  </body>
+</html>
