@@ -132,34 +132,5 @@
       <button onclick="hideNotification()">Non, plus tard</button>
     </div>
 
-    <script src="script.js">
-
-        function showNotification() {
-          document.getElementById("notification").style.display = "block";
-      }
-
-      function hideNotification() {
-          document.getElementById("notification").style.display = "none";
-      }
-
-      function confirmSubmit() {
-          hideNotification();
-          // Envoyer le formulaire à l'adresse e-mail
-          var form = document.getElementById("contactForm");
-          var formData = new FormData(form);
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "mailto:webminehub@gmail.com");
-          xhr.send(formData);
-
-          setTimeout(function () {
-              alert("Votre ticket a été envoyé avec succès. Merci !");
-              // Désactiver le bouton d'envoi pendant 5 minutes
-              document.getElementById("submitBtn").disabled = true;
-              setTimeout(function () {
-                  document.getElementById("submitBtn").disabled = false;
-              }, 300000); // 5 minutes en millisecondes
-          }, 1000); // Wait for 1 second before showing the success message
-      }
-    </script>
   </body>
 </html>
